@@ -41,5 +41,12 @@ app.get('/', (req, res) => {
   res.send('Welcome to the image upload server!');
 });
 
-// Export ứng dụng để Vercel có thể sử dụng
+// Để Render tự động gán cổng từ biến môi trường hoặc mặc định là 3000
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+
+// Export ứng dụng để Vercel hoặc Render có thể sử dụng
 module.exports = app;
